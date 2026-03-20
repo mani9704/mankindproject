@@ -1,2 +1,5 @@
 .env
 mankind_matrix/.env mankind-backend/.env
+**/.env
+.env.local
+.env.production

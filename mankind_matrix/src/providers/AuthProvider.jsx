@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useRef } from 'react';
+import React, { createContext, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { initializeAuth, getCurrentUser, selectUser, selectToken, selectIsAuthenticated, selectIsInitialized } from '../redux/slices/userSlice';
 import { fetchCart } from '../redux/slices/cartSlice';

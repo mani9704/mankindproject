@@ -5,7 +5,6 @@ import {
   createInventory,
   updateInventory,
   selectInventory,
-  selectInventoryByProductId,
   selectInventoryLoading,
   selectInventoryError,
   clearInventory,

@@ -1,0 +1,121 @@
+/* ProfilePage.css */
+.manage-containers {
+  display: flex; /* Places AccountNavigation and content side-by-side */
+  gap: 0px; /* Space between navigation and content */
+  padding: 20px; /* Padding around the entire addresses section */
+  width: 100%; /* Full width of the parent */
+  max-width: 2000px; /* Optional: constrain width */
+  margin-left: 0;
+  font-family: sans-serif; /* Basic font */
+}
+
+
+.side-container {
+  max-width: 900px;
+  width: 100%;
+  padding-bottom: 40px;
+  margin: 0 auto;
+}
+
+.side-container h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 1rem;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  gap: 15px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.label {
+  font-weight: bold;
+  color: #555;
+  width: 180px;
+}
+
+.value {
+  flex-grow: 1;
+  overflow-wrap: break-word;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.edit-button-container {
+  text-align: right;
+  margin-bottom: 15px;
+}
+
+.edit-button {
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: 500;
+}
+
+.edit-button:hover {
+  background-color: #333;
+}
+
+.add-button {
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.add-button:hover {
+  background-color: #333;
+}
+
+.mobile-info {
+  flex-grow: 1;
+}
+
+.security-note {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 5px;
+}
+
+.warning-icon {
+  margin-right: 5px;
+}
+
+.error-message {
+  color: #d9534f;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f8d7da;
+  border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+
+  .side-container {
+    margin-left: 0;
+    max-width: 100%;
+  }
+}

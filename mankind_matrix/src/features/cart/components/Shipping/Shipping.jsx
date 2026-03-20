@@ -5,7 +5,7 @@ import {
   Clock,
   Check
 } from 'lucide-react';
-import { SHIPPING_COSTS, DELIVERY_TIMEFRAMES } from '../../utils/constants';
+import { SHIPPING_COSTS } from '../../utils/constants';
 import './Shipping.css';
 
 const Shipping = ({ 

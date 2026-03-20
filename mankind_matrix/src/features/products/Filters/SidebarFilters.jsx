@@ -18,7 +18,7 @@ const flattenCategories = (categories, level = 0) => {
 };
 
 const SidebarFilters = ({ onFilterChange }) => {
-  const { categories, loading, getCategories } = useCategories();
+  const { categories, getCategories } = useCategories();
   const [selectedCategory, setSelectedCategory] = useState('');
 
   useEffect(() => {

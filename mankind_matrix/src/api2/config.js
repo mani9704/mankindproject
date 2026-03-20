@@ -52,9 +52,11 @@ if (IS_DEV) {
   });
 }
 
-export default {
+const apiConfig = {
   env: ENV,
   isDev: IS_DEV,
   services,
   settings,
-}; 
+};
+
+export default apiConfig;

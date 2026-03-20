@@ -1,6 +1,6 @@
-import React, { memo, useState, useCallback } from 'react';
+import React, { memo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { selectCompareItems, removeFromCompare, clearCompare } from '../../../redux/slices/compareSlice';
 import './CompareBar.css';
 // Removed modal view in favor of dedicated page
@@ -9,7 +9,6 @@ const CompareBar = memo(() => {
 	const items = useSelector(selectCompareItems);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const location = useLocation();
 
 	const goToInlineCompare = () => {
 		if (items.length >= 2) {

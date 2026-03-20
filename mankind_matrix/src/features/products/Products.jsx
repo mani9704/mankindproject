@@ -12,7 +12,7 @@ const ProductsPage = memo(() => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage, setProductsPerPage] = useState(12);
+  const [productsPerPage] = useState(12);
   const [sortOption, setSortOption] = useState('');
 
   // Handler for search input with debounce

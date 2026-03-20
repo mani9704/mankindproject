@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import Slider from 'react-slick';
 import ProductHighlightCard from './ProductHighlightCard';
 import useProducts from '../../../hooks/useProducts';
@@ -6,30 +6,10 @@ import './HighlightedProductsCarousel.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// Arrow components for navigation
-const PrevArrow = React.memo(({ onClick }) => (
-  <div className="custom-arrow custom-prev" onClick={onClick}>
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="15 18 9 12 15 6"></polyline>
-    </svg>
-  </div>
-));
-
-const NextArrow = React.memo(({ onClick }) => (
-  <div className="custom-arrow custom-next" onClick={onClick}>
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="9 18 15 12 9 6"></polyline>
-    </svg>
-  </div>
-));
-
 // Memoize the ProductHighlightCard component
 const MemoizedProductHighlightCard = React.memo(ProductHighlightCard);
 
-const ITEMS_PER_PAGE = 5;
-
 const HighlightedProductsCarousel = React.memo(() => {
-  const [currentSlide, setCurrentSlide] = useState(0);
   const { 
     featuredProducts,
     loading, 
@@ -73,11 +53,10 @@ const HighlightedProductsCarousel = React.memo(() => {
   }, [getFeaturedProducts, featuredLoading]); // Restored featuredLoading to dependencies
 
   // Memoize products array and calculations
-  const { products, totalPages } = useMemo(() => {
+  const { products } = useMemo(() => {
     const productsArray = Array.isArray(featuredProducts) ? featuredProducts : [];
     return {
-      products: productsArray,
-      totalPages: Math.ceil(productsArray.length / ITEMS_PER_PAGE)
+      products: productsArray
     };
   }, [featuredProducts]);
   
@@ -91,7 +70,6 @@ const HighlightedProductsCarousel = React.memo(() => {
     arrows: true,
     autoplay: true,
     autoplaySpeed: 3000,
-    beforeChange: (_, next) => setCurrentSlide(next),
     responsive: [
       {
         breakpoint: 1200,
@@ -122,57 +100,6 @@ const HighlightedProductsCarousel = React.memo(() => {
 
   // Reference to the slider
   const sliderRef = useRef(null);
-
-  // Memoize navigation handlers
-  const goToPrev = useCallback(() => {
-    if (sliderRef.current) {
-      sliderRef.current.slickPrev();
-    }
-  }, []);
-
-  const goToNext = useCallback(() => {
-    if (sliderRef.current) {
-      sliderRef.current.slickNext();
-    }
-  }, []);
-
-  const goToSlide = useCallback((index) => {
-    if (sliderRef.current) {
-      sliderRef.current.slickGoTo(index * ITEMS_PER_PAGE);
-    }
-  }, []);
-
-  // Memoize custom dots component
-  const renderCustomDots = useCallback(() => {
-    return (
-      <div style={{
-        position: 'absolute',
-        bottom: '-40px',
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        zIndex: 1000,
-      }}>
-        {Array.from({ length: totalPages }).map((_, index) => (
-          <div
-            key={index}
-            style={{
-              width: '10px',
-              height: '10px',
-              borderRadius: '50%',
-              backgroundColor: currentSlide === index ? '#101820' : '#ccc',
-              margin: '0 5px',
-              cursor: 'pointer',
-              transform: currentSlide === index ? 'scale(1.3)' : 'scale(1)',
-              transition: 'all 0.3s ease',
-            }}
-            onClick={() => goToSlide(index)}
-          />
-        ))}
-      </div>
-    );
-  }, [currentSlide, totalPages, goToSlide]);
 
   // Memoize the main content
   const mainContent = useMemo(() => (

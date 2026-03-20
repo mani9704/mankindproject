@@ -64,7 +64,7 @@ const ProductHighlightCard = memo(({ product }) => {
     return null;
   }
 
-  const { name, category, description, images, id, inventoryStatus } = product;
+  const { name, description, images, id } = product;
   const inventory = getInventoryStatus();
   const isAvailable = inventory?.isAvailable;
   const hasPrice = Boolean(inventory?.price);

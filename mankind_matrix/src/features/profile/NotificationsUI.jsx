@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { FaBell, FaCheck, FaTrash, FaCheckDouble, FaRegClock, FaCog, FaArrowLeft } from 'react-icons/fa';
+import { FaBell, FaCheckDouble, FaRegClock, FaCog, FaArrowLeft } from 'react-icons/fa';
 
 function NotificationsUI() {
   const [isOpen, setIsOpen] = useState(false);

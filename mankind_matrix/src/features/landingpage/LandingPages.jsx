@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React from 'react';
 import './LandingPages.css';
 import withLayout from '../../layouts/HOC/withLayout';
 import { ToastContainer } from 'react-toastify';

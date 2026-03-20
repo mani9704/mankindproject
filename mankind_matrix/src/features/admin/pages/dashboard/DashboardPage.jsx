@@ -113,8 +113,6 @@ const StatCard = ({ stat }) => {
 };
 
 const DashboardPage = () => {
-  const theme = useTheme();
-
   return (
     <Box>
       {/* Page Header */}
